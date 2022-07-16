@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem 'dotenv-rails'
 
+gem 'nokogiri'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 

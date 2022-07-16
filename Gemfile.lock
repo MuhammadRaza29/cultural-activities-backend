@@ -225,6 +225,7 @@ DEPENDENCIES
   dotenv-rails
   importmap-rails
   jbuilder
+  nokogiri
   pg
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
