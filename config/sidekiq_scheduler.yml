@@ -1,0 +1,6 @@
+:schedule:
+  fetch_calendar_events:
+    every: 1h
+    class: Cron::FetchCalendarEvents
+    description:
+    queue: critical

@@ -1,6 +1,5 @@
 class Category < ApplicationRecord
 
   # Associations
-  belongs_to :event
-
+  has_many :events
 end
