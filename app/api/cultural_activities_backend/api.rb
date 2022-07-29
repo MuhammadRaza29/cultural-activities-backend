@@ -5,5 +5,6 @@ module CulturalActivitiesBackend
     prefix :api
 
     mount V1::Events
+    mount V1::WebSources
   end
 end
