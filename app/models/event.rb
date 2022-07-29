@@ -14,4 +14,6 @@ class Event < ApplicationRecord
 
   # Scopes
   scope :active, -> { where(status: statuses[:active]) }
+  scope :search_by, ->(column, value) { where("LOWER(#{column}) LIKE LOWER(?)", "%#{value}%") }
+  scope :search_by_date, ->(date) { where("DATE(start_date) = ? OR DATE(end_date) = ?", date, date) }
 end

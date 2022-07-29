@@ -72,6 +72,7 @@ GEM
     bootsnap (1.12.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (11.1.3)
     capybara (3.37.1)
       addressable
       matrix
@@ -85,9 +86,6 @@ GEM
     concurrent-ruby (1.1.10)
     connection_pool (2.2.5)
     crass (1.0.6)
-    debug (1.6.1)
-      irb (>= 1.3.6)
-      reline (>= 0.3.1)
     digest (3.1.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -127,9 +125,6 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.5.11)
-    irb (1.4.1)
-      reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -219,8 +214,6 @@ GEM
     rake (13.0.6)
     redis (4.7.1)
     regexp_parser (2.5.0)
-    reline (0.3.1)
-      io-console (~> 0.5)
     rexml (3.2.5)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -281,8 +274,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  byebug
   capybara
-  debug
   dotenv-rails
   grape
   importmap-rails
