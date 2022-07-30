@@ -13,3 +13,78 @@
  *= require_tree .
  *= require_self
  */
+
+.sign-in {
+  margin-top: 5% !important;
+}
+body sign-in{
+  background-color:#f5f5f5;
+  font-family:Ebrima;
+}
+.overall{
+  width: 350px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.form{
+  color: #434343;
+  border-radius: 1px;
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #f3f3f3;
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+  padding: 30px;
+}
+.circle{
+  color: #fff;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background:#60c7c1;
+  padding: 10px;
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
+}
+.title{
+  text-align: center;
+  font-size: 20px;
+}
+.form-input input {
+  min-height: 40px;
+  border-radius: 2px;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  margin-bottom: 20px;
+}
+button{
+  background: #60c7c1 !important;
+  border: none;
+  min-height: 40px;
+  border-radius: 2px;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  color:#fff;
+  width: 100%;
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
+}
+.signup{
+  font-size: 18px;
+  color:#000;
+  text-align: center!important;
+}
+.signup a{
+  text-decoration: none;
+  color: #60c7c1;
+}  
+input:focus{ 
+  outline: none !important;
+  box-shadow: 0 0 0.5px 0.5px #0174b6;
+}
+button:focus{ 
+  outline: none !important;
+  box-shadow: 0 0 0.5px 0.5px #60c7c1;
+}
+
