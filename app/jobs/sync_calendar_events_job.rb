@@ -1,4 +1,4 @@
-class SyncCalendarEventsJob < ActiveJob
+class SyncCalendarEventsJob < ApplicationJob
   queue_as :default
 
   def perform(name)

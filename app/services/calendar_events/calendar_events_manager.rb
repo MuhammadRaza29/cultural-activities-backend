@@ -12,6 +12,6 @@ class CalendarEvents::CalendarEventsManager
   end
 
   def call
-    "#{name.capitalize}".constantize.new.call
+    "CalendarEvents::#{name.capitalize}".constantize.new.call
   end
 end
