@@ -1,30 +1,32 @@
-# README
-
 # Cutural Activities Backend
 
 ## Project setup
 
-## Ruby version
+### Ruby version
 ```
 3.1.2
 ```
 
-## Rails version
+### Rails version
 ```
 7.0.3
 ```
 
-## Database creation
+### Database creation
 ```
 rails db:setup
 ```
 
-## Start server
+### Start server
 ```
 rails s
 ```
 
-## Start rails console
+### Start rails console
 ```
 rails c
+```
+### Run Rspec
+```
+rspec
 ```
