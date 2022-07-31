@@ -4,3 +4,9 @@
     class: Cron::FetchCalendarEvents
     description:
     queue: critical
+
+  expire_past_calendar_events:
+    every: 1h
+    class: Cron::ExpirePastCalendarEvents
+    description:
+    queue: default
