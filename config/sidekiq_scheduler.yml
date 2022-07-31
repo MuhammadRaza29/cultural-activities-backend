@@ -1,12 +1,11 @@
-:schedule:
-  fetch_calendar_events:
-    every: 1h
-    class: Cron::FetchCalendarEvents
-    description:
-    queue: critical
+fetch_calendar_events:
+  every: 1h
+  class: Cron::FetchCalendarEvents
+  description: 'Fetch all active calendar events'
+  queue: critical
 
-  expire_past_calendar_events:
-    every: 1h
-    class: Cron::ExpirePastCalendarEvents
-    description:
-    queue: default
+expire_past_calendar_events:
+  every: 5min
+  class: Cron::ExpirePastCalendarEvents
+  description: 'Expire all past calendar events'
+  queue: default

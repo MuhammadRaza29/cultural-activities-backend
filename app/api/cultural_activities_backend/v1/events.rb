@@ -5,8 +5,8 @@ module CulturalActivitiesBackend
         def event_data(event)
           date = event.start_date.to_s
           date += " - #{event.end_date}" if event.end_date.present?
-          time = event.start_time.to_s
-          time += " - #{event.end_time}" if event.end_time.present?
+          time = event.start_time.strftime("%H:%M %p") rescue ''
+          time += " - #{event.end_time.strftime("%H:%M %p")}" if event.end_time.present?
           {
             id: event.id,
             title: event.title,

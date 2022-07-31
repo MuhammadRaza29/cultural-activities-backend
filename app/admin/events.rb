@@ -28,6 +28,9 @@ ActiveAdmin.register Event do
       div event.description
     end
     column :web_source
+    column :url do |event|
+      link_to 'View More Details', event.url, target: '_blank'
+    end
     column :picture_url do |event|
       link_to event.picture_url, target: '_blank' do
         image_tag event.picture_url, width: '100%'
@@ -38,8 +41,12 @@ ActiveAdmin.register Event do
     end
     column :start_date
     column :end_date
-    column :start_time
-    column :end_time
+    column :start_time do |event|
+      event.start_time.strftime("%H:%M %p") rescue ''
+    end
+    column :end_time do |event|
+      event.end_time.strftime("%H:%M %p") rescue ''
+    end
     column :category_id do |event|
       event.category_name
     end

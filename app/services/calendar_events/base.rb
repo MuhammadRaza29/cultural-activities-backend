@@ -25,4 +25,12 @@ class CalendarEvents::Base
   def find_event(title)
     Event.find_by_title(title)
   end
+
+  def event_time(date, time)
+    DateTime.parse("#{date} #{time}")
+  end
+
+  def has_digits?(s)
+    s =~ /\d/
+  end
 end

@@ -8,8 +8,7 @@ class CalendarEvents::Visitberlin < CalendarEvents::Base
 
   def fetch_and_parse_data
     @response = Nokogiri::HTML(URI.open(url))
-    (0...2).each do |page_no|
-    #(0...total_pages).each do |page_no|
+    (0...total_pages).each do |page_no|
       new_page_url = "#{base_url}/en/event-calendar-berlin?page=#{page_no}"
       page_data = Nokogiri::HTML(URI.open(new_page_url))
       page_data.css(".site-main .l-list .l-list__item").each do |event|
@@ -34,13 +33,24 @@ class CalendarEvents::Visitberlin < CalendarEvents::Base
 
   def set_start_and_end_date(event)
     date = event.css(".teaser-search__header-content .teaser-search__date time")
-    event_params[:start_date] = date[0].text
-    event_params[:end_date] = date[1].present? ? date[1].text : event_params[:start_date]
+    event_params[:start_date] = has_digits?(date[0].text) ? date[0].text : nil
+    event_params[:end_date] = date[1].present? && has_digits?(date[1].text) ? date[1].text : event_params[:start_date]
   end
 
   def set_start_and_end_time(event)
     time = event.css(".teaser-search__time.me .me__content").text
-    event_params[:start_time], event_params[:end_time] = time.present? ? time.split("–").map(&:strip) : [nil, nil]
+    event_params[:start_time], event_params[:end_time] = if time.present?
+                                                            time.split("–").map(&:strip).map(&:squish)
+                                                          else 
+                                                            [nil, nil]
+                                                          end
+    if event_params[:start_time].present?
+      event_params[:start_time] = event_time(event_params[:start_date], event_params[:start_time])
+    end
+    if event_params[:end_time].present?
+      date = event_params[:end_date] || event_params[:start_date]
+      event_params[:end_time] = event_time(date, event_params[:end_time])
+    end
   end
 
   def set_detail_page_and_picture_url(event)

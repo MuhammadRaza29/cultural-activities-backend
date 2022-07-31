@@ -59,16 +59,27 @@ class CalendarEvents::Gorki < CalendarEvents::Base
       venue_name = 'Gorki Kiosk & Jurte'
     end
     end_time = if end_time.present?
-      DateTime.parse(end_time)
+      end_time
     end
-    event_params[:start_time] = DateTime.parse(start_time)
-    event_params[:end_time] = end_time
+    if event_params[:title] == 'Discover Berlin anew! The rally app - The Lialo App'
+      byebug
+    end
+    if start_time.present?
+      event_params[:start_time] = event_time(event_params[:start_date], start_time)
+    end
+    if end_time.present?
+      event_params[:end_time] = event_time(event_params[:end_date] || event_params[:start_date], end_time)
+    end
     event_params[:venue_name] = venue_name
   end
 
   def set_start_and_end_date(title, event, detail_page_url, dup_event)
-    event_params[:end_date] = DateTime.parse(detail_page_url.split("/").last)
-    event_params[:start_date] = dup_event.presence ? dup_event.start_date : event_params[:end_date]
+    end_date = detail_page_url.split("/").last
+    if has_digits?(end_date)
+      event_params[:end_date] = DateTime.parse(end_date)
+    end
+    start_date = dup_event.presence ? dup_event.start_date : event_params[:end_date]
+    event_params[:start_date] = has_digits?(start_date) ? start_date : nil
   end
 
   def set_event_venue(dup_event, venue_name)
