@@ -1,23 +1,30 @@
 # README
 
-Cutural Activities Backend
-Things you may want to cover:
+# Cutural Activities Backend
 
-* Ruby version
-3.1.0
+## Project setup
 
-* System dependencies
+## Ruby version
+```
+3.1.2
+```
 
-* Configuration
+## Rails version
+```
+7.0.3
+```
 
-* Database creation
+## Database creation
+```
+rails db:setup
+```
 
-* Database initialization
+## Start server
+```
+rails s
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Start rails console
+```
+rails c
+```
